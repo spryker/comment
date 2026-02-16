@@ -84,7 +84,7 @@ class CommentMapper
     /**
      * @param \Propel\Runtime\Collection\Collection<\Orm\Zed\Comment\Persistence\SpyComment> $commentEntities
      *
-     * @return array<\Generated\Shared\Transfer\CommentTransfer>
+     * @return list<\Generated\Shared\Transfer\CommentTransfer>
      */
     public function mapCommentEntitiesToCommentTransfers(Collection $commentEntities): array
     {

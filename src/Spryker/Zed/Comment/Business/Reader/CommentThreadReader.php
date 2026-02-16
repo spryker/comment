@@ -72,6 +72,7 @@ class CommentThreadReader implements CommentThreadReaderInterface
         $commentTransfers = $this->commentRepository->getCommentsByCommentThreadIds($threadIds);
         $commentTransfers = $this->executeCommentExpanderPlugins($commentTransfers);
 
+        /** @var list<\Generated\Shared\Transfer\CommentThreadTransfer> $commentThreadTransfers */
         return $this->mapCommentsToThreads($commentThreadTransfers, $commentTransfers);
     }
 
@@ -111,8 +112,8 @@ class CommentThreadReader implements CommentThreadReaderInterface
     }
 
     /**
-     * @param array<\Generated\Shared\Transfer\CommentThreadTransfer> $commentThreadTransfers
-     * @param array<\Generated\Shared\Transfer\CommentTransfer> $commentTransfers
+     * @param list<\Generated\Shared\Transfer\CommentThreadTransfer> $commentThreadTransfers
+     * @param list<\Generated\Shared\Transfer\CommentTransfer> $commentTransfers
      *
      * @return array<\Generated\Shared\Transfer\CommentThreadTransfer>
      */

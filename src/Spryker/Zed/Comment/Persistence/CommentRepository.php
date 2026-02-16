@@ -51,7 +51,7 @@ class CommentRepository extends AbstractRepository implements CommentRepositoryI
     /**
      * @param \Generated\Shared\Transfer\CommentsRequestTransfer $commentsRequestTransfer
      *
-     * @return array<\Generated\Shared\Transfer\CommentThreadTransfer>
+     * @return list<\Generated\Shared\Transfer\CommentThreadTransfer>
      */
     public function getCommentThreads(CommentsRequestTransfer $commentsRequestTransfer): array
     {
@@ -93,7 +93,7 @@ class CommentRepository extends AbstractRepository implements CommentRepositoryI
      *
      * @param \Generated\Shared\Transfer\CommentThreadTransfer $commentThreadTransfer
      *
-     * @return array<\Generated\Shared\Transfer\CommentTransfer>
+     * @return list<\Generated\Shared\Transfer\CommentTransfer>
      */
     public function findCommentsByCommentThread(CommentThreadTransfer $commentThreadTransfer): array
     {
@@ -107,7 +107,7 @@ class CommentRepository extends AbstractRepository implements CommentRepositoryI
      *
      * @param array<int> $threadIds
      *
-     * @return array<\Generated\Shared\Transfer\CommentTransfer>
+     * @return list<\Generated\Shared\Transfer\CommentTransfer>
      */
     public function getCommentsByCommentThreadIds(array $threadIds): array
     {
@@ -217,7 +217,7 @@ class CommentRepository extends AbstractRepository implements CommentRepositoryI
     /**
      * @param \Propel\Runtime\Collection\Collection<\Orm\Zed\Comment\Persistence\SpyCommentThread> $commentThreadEntities
      *
-     * @return array<\Generated\Shared\Transfer\CommentThreadTransfer>
+     * @return list<\Generated\Shared\Transfer\CommentThreadTransfer>
      */
     protected function mapCommentThreadEntitiesToTransfers(Collection $commentThreadEntities): array
     {

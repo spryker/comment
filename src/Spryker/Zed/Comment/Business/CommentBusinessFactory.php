@@ -103,7 +103,7 @@ class CommentBusinessFactory extends AbstractBusinessFactory
     }
 
     /**
-     * @return array<\Spryker\Zed\CommentExtension\Dependency\Plugin\CommentValidatorPluginInterface>
+     * @return list<\Spryker\Zed\CommentExtension\Dependency\Plugin\CommentValidatorPluginInterface>
      */
     public function getCommentValidatorPlugins(): array
     {

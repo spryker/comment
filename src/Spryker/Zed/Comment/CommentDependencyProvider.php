@@ -109,7 +109,7 @@ class CommentDependencyProvider extends AbstractBundleDependencyProvider
     }
 
     /**
-     * @return array<\Spryker\Zed\CommentExtension\Dependency\Plugin\CommentValidatorPluginInterface>
+     * @return list<\Spryker\Zed\CommentExtension\Dependency\Plugin\CommentValidatorPluginInterface>
      */
     protected function getCommentValidatorPlugins(): array
     {

@@ -39,14 +39,14 @@ interface CommentRepositoryInterface
     /**
      * @param \Generated\Shared\Transfer\CommentThreadTransfer $commentThreadTransfer
      *
-     * @return array<\Generated\Shared\Transfer\CommentTransfer>
+     * @return list<\Generated\Shared\Transfer\CommentTransfer>
      */
     public function findCommentsByCommentThread(CommentThreadTransfer $commentThreadTransfer): array;
 
     /**
      * @param array<int> $threadIds
      *
-     * @return array<\Generated\Shared\Transfer\CommentTransfer>
+     * @return list<\Generated\Shared\Transfer\CommentTransfer>
      */
     public function getCommentsByCommentThreadIds(array $threadIds): array;
 
