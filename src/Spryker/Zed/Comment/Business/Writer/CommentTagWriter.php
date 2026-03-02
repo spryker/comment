@@ -54,12 +54,6 @@ class CommentTagWriter implements CommentTagWriterInterface
      */
     protected $commentConfig;
 
-    /**
-     * @param \Spryker\Zed\Comment\Persistence\CommentEntityManagerInterface $commentEntityManager
-     * @param \Spryker\Zed\Comment\Persistence\CommentRepositoryInterface $commentRepository
-     * @param \Spryker\Zed\Comment\Business\Reader\CommentThreadReaderInterface $commentThreadReader
-     * @param \Spryker\Zed\Comment\CommentConfig $commentConfig
-     */
     public function __construct(
         CommentEntityManagerInterface $commentEntityManager,
         CommentRepositoryInterface $commentRepository,
@@ -72,11 +66,6 @@ class CommentTagWriter implements CommentTagWriterInterface
         $this->commentConfig = $commentConfig;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentTagRequestTransfer $commentTagRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadResponseTransfer
-     */
     public function addCommentTag(CommentTagRequestTransfer $commentTagRequestTransfer): CommentThreadResponseTransfer
     {
         $commentTagRequestTransfer
@@ -104,11 +93,6 @@ class CommentTagWriter implements CommentTagWriterInterface
         return $this->createCommentThreadResponse($commentTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentTagRequestTransfer $commentTagRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadResponseTransfer
-     */
     public function removeCommentTag(CommentTagRequestTransfer $commentTagRequestTransfer): CommentThreadResponseTransfer
     {
         $commentTagRequestTransfer
@@ -141,11 +125,6 @@ class CommentTagWriter implements CommentTagWriterInterface
         return $this->createCommentThreadResponse($commentTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentTransfer $commentTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentTransfer
-     */
     public function saveCommentTags(CommentTransfer $commentTransfer): CommentTransfer
     {
         $expandedCommentTagTransfers = [];
@@ -183,21 +162,11 @@ class CommentTagWriter implements CommentTagWriterInterface
         return $commentTagMap;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentTagRequestTransfer $commentTagRequestTransfer
-     *
-     * @return bool
-     */
     protected function isCommentTagAvailable(CommentTagRequestTransfer $commentTagRequestTransfer): bool
     {
         return in_array($commentTagRequestTransfer->getName(), $this->commentConfig->getAvailableCommentTags(), true);
     }
 
-    /**
-     * @param string $message
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadResponseTransfer
-     */
     protected function createErrorResponse(string $message): CommentThreadResponseTransfer
     {
         $messageTransfer = (new MessageTransfer())
@@ -208,11 +177,6 @@ class CommentTagWriter implements CommentTagWriterInterface
             ->addMessage($messageTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentTransfer $commentTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadResponseTransfer
-     */
     protected function createCommentThreadResponse(CommentTransfer $commentTransfer): CommentThreadResponseTransfer
     {
         $commentThreadTransfer = (new CommentThreadTransfer())

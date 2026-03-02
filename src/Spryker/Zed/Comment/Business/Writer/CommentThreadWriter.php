@@ -50,11 +50,6 @@ class CommentThreadWriter implements CommentThreadWriterInterface
      */
     protected $commentTagWriter;
 
-    /**
-     * @param \Spryker\Zed\Comment\Persistence\CommentEntityManagerInterface $commentEntityManager
-     * @param \Spryker\Zed\Comment\Persistence\CommentRepositoryInterface $commentRepository
-     * @param \Spryker\Zed\Comment\Business\Writer\CommentTagWriterInterface $commentTagWriter
-     */
     public function __construct(
         CommentEntityManagerInterface $commentEntityManager,
         CommentRepositoryInterface $commentRepository,
@@ -65,11 +60,6 @@ class CommentThreadWriter implements CommentThreadWriterInterface
         $this->commentTagWriter = $commentTagWriter;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentRequestTransfer $commentRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadTransfer
-     */
     public function createCommentThread(CommentRequestTransfer $commentRequestTransfer): CommentThreadTransfer
     {
         $commentRequestTransfer
@@ -83,13 +73,6 @@ class CommentThreadWriter implements CommentThreadWriterInterface
         return $this->commentEntityManager->createCommentThread($commentThreadTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentFilterTransfer $commentFilterTransfer
-     * @param \Generated\Shared\Transfer\CommentRequestTransfer $commentRequestTransfer
-     * @param bool|null $forceDelete
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadResponseTransfer
-     */
     public function duplicateCommentThread(
         CommentFilterTransfer $commentFilterTransfer,
         CommentRequestTransfer $commentRequestTransfer,
@@ -108,12 +91,6 @@ class CommentThreadWriter implements CommentThreadWriterInterface
         });
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OrderTransfer $orderTransfer
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadResponseTransfer
-     */
     public function copyCommentThreadFromOrderToQuote(
         OrderTransfer $orderTransfer,
         QuoteTransfer $quoteTransfer
@@ -137,13 +114,6 @@ class CommentThreadWriter implements CommentThreadWriterInterface
         return $this->duplicateCommentThread($commentFilterTransfer, $commentRequestTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentFilterTransfer $commentFilterTransfer
-     * @param \Generated\Shared\Transfer\CommentRequestTransfer $commentRequestTransfer
-     * @param bool|null $forceDelete
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadResponseTransfer
-     */
     protected function executeDuplicateCommentThreadTransaction(
         CommentFilterTransfer $commentFilterTransfer,
         CommentRequestTransfer $commentRequestTransfer,
@@ -172,12 +142,6 @@ class CommentThreadWriter implements CommentThreadWriterInterface
             ->setCommentThread($commentThreadTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentTransfer $commentTransfer
-     * @param \Generated\Shared\Transfer\CommentThreadTransfer $commentThreadTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentTransfer
-     */
     protected function duplicateComment(CommentTransfer $commentTransfer, CommentThreadTransfer $commentThreadTransfer): CommentTransfer
     {
         $duplicatedCommentTransfer = (new CommentTransfer())
@@ -197,11 +161,6 @@ class CommentThreadWriter implements CommentThreadWriterInterface
         return $duplicatedCommentTransfer;
     }
 
-    /**
-     * @param string $message
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadResponseTransfer
-     */
     protected function createErrorResponse(string $message): CommentThreadResponseTransfer
     {
         $messageTransfer = (new MessageTransfer())

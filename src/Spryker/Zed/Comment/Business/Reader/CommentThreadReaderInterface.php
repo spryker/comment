@@ -13,11 +13,6 @@ use Generated\Shared\Transfer\CommentThreadTransfer;
 
 interface CommentThreadReaderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\CommentRequestTransfer $commentRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadTransfer|null
-     */
     public function findCommentThreadByOwner(CommentRequestTransfer $commentRequestTransfer): ?CommentThreadTransfer;
 
     /**
@@ -27,10 +22,5 @@ interface CommentThreadReaderInterface
      */
     public function getCommentThreads(CommentsRequestTransfer $commentsRequestTransfer): array;
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentThreadTransfer $commentThreadTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadTransfer|null
-     */
     public function findCommentThreadById(CommentThreadTransfer $commentThreadTransfer): ?CommentThreadTransfer;
 }

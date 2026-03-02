@@ -36,11 +36,6 @@ class CommentDependencyProvider extends AbstractBundleDependencyProvider
      */
     public const FACADE_CUSTOMER = 'FACADE_CUSTOMER';
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     public function provideBusinessLayerDependencies(Container $container): Container
     {
         $container = parent::provideBusinessLayerDependencies($container);
@@ -52,11 +47,6 @@ class CommentDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addCommentValidatorPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_COMMENT_VALIDATOR, function () {
@@ -66,11 +56,6 @@ class CommentDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addCommentAuthorValidatorStrategyPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_COMMENT_AUTHOR_VALIDATOR_STRATEGY, function () {
@@ -80,11 +65,6 @@ class CommentDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addCommentExpanderPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_COMMENT_EXPANDER, function () {
@@ -94,11 +74,6 @@ class CommentDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addCustomerFacade(Container $container): Container
     {
         $container->set(static::FACADE_CUSTOMER, function (Container $container) {

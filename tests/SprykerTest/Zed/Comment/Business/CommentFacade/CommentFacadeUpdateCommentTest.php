@@ -74,9 +74,6 @@ class CommentFacadeUpdateCommentTest extends Unit
      */
     protected $customerTransfer;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -84,9 +81,6 @@ class CommentFacadeUpdateCommentTest extends Unit
         $this->customerTransfer = $this->tester->haveCustomer();
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateCommentUpdatesExistingComment(): void
     {
         // Arrange
@@ -118,9 +112,6 @@ class CommentFacadeUpdateCommentTest extends Unit
         $this->assertTrue($storedCommentTransfer->getIsUpdated());
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateCommentThrowsExceptionWithEmptyComment(): void
     {
         // Arrange
@@ -140,9 +131,6 @@ class CommentFacadeUpdateCommentTest extends Unit
         $this->tester->getFacade()->updateComment($commentRequestTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateCommentThrowsExceptionWithEmptyCommentMessage(): void
     {
         // Arrange
@@ -162,9 +150,6 @@ class CommentFacadeUpdateCommentTest extends Unit
         $this->tester->getFacade()->updateComment($commentRequestTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateCommentThrowsExceptionWithEmptyCustomer(): void
     {
         // Arrange
@@ -184,9 +169,6 @@ class CommentFacadeUpdateCommentTest extends Unit
         $this->tester->getFacade()->updateComment($commentRequestTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateCommentThrowsExceptionWithEmptyIdCustomer(): void
     {
         // Arrange
@@ -206,9 +188,6 @@ class CommentFacadeUpdateCommentTest extends Unit
         $this->tester->getFacade()->updateComment($commentRequestTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateCommentWithWrongUuidComment(): void
     {
         // Arrange
@@ -232,9 +211,6 @@ class CommentFacadeUpdateCommentTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateCommentWithWrongCustomer(): void
     {
         // Arrange
@@ -258,9 +234,6 @@ class CommentFacadeUpdateCommentTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateCommentTryToUpdateCommentWithEmptyMessage(): void
     {
         // Arrange
@@ -288,9 +261,6 @@ class CommentFacadeUpdateCommentTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateCommentTryToUpdateCommentWithExtendedLength(): void
     {
         // Arrange

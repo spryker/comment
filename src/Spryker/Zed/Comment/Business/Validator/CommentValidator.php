@@ -59,11 +59,6 @@ class CommentValidator implements CommentValidatorInterface
         $this->commentAuthorValidatorStrategyPlugins = $commentAuthorValidatorStrategyPlugins;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentRequestTransfer $commentRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentValidationResponseTransfer
-     */
     public function validateCommentRequestOnCreate(CommentRequestTransfer $commentRequestTransfer): CommentValidationResponseTransfer
     {
         $commentValidationResponseTransfer = (new CommentValidationResponseTransfer())->setIsSuccessful(true);
@@ -75,12 +70,6 @@ class CommentValidator implements CommentValidatorInterface
         return $this->executeCommentValidatorPlugins($commentRequestTransfer, $commentValidationResponseTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentRequestTransfer $commentRequestTransfer
-     * @param \Generated\Shared\Transfer\CommentTransfer|null $commentTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentValidationResponseTransfer
-     */
     public function validateCommentRequestOnUpdate(
         CommentRequestTransfer $commentRequestTransfer,
         ?CommentTransfer $commentTransfer
@@ -98,12 +87,6 @@ class CommentValidator implements CommentValidatorInterface
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentRequestTransfer $commentRequestTransfer
-     * @param \Generated\Shared\Transfer\CommentTransfer|null $commentTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentValidationResponseTransfer
-     */
     public function validateCommentRequestOnDelete(
         CommentRequestTransfer $commentRequestTransfer,
         ?CommentTransfer $commentTransfer
@@ -117,11 +100,6 @@ class CommentValidator implements CommentValidatorInterface
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentRequestTransfer $commentRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentValidationResponseTransfer
-     */
     public function validateCommentAuthor(
         CommentRequestTransfer $commentRequestTransfer
     ): CommentValidationResponseTransfer {
@@ -141,12 +119,6 @@ class CommentValidator implements CommentValidatorInterface
         return (new CommentValidationResponseTransfer())->setIsSuccessful(true);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentTransfer $commentTransfer
-     * @param \Generated\Shared\Transfer\CommentValidationResponseTransfer $commentValidationResponseTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentValidationResponseTransfer
-     */
     protected function validateCommentMessageLength(
         CommentTransfer $commentTransfer,
         CommentValidationResponseTransfer $commentValidationResponseTransfer
@@ -164,13 +136,6 @@ class CommentValidator implements CommentValidatorInterface
         return $commentValidationResponseTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentRequestTransfer $commentRequestTransfer
-     * @param \Generated\Shared\Transfer\CommentValidationResponseTransfer $commentValidationResponseTransfer
-     * @param \Generated\Shared\Transfer\CommentTransfer|null $commentTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentValidationResponseTransfer
-     */
     protected function validateCommentRequest(
         CommentRequestTransfer $commentRequestTransfer,
         CommentValidationResponseTransfer $commentValidationResponseTransfer,
@@ -194,12 +159,6 @@ class CommentValidator implements CommentValidatorInterface
         return $commentValidationResponseTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentRequestTransfer $commentRequestTransfer
-     * @param \Generated\Shared\Transfer\CommentValidationResponseTransfer $commentValidationResponseTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentValidationResponseTransfer
-     */
     protected function executeCommentValidatorPlugins(
         CommentRequestTransfer $commentRequestTransfer,
         CommentValidationResponseTransfer $commentValidationResponseTransfer
@@ -236,11 +195,6 @@ class CommentValidator implements CommentValidatorInterface
             && $commentTransfer->getCustomerOrFail()->getIdCustomer() === $commentRequestTransfer->getCommentOrFail()->getCustomerOrFail()->getIdCustomer();
     }
 
-    /**
-     * @param string $message
-     *
-     * @return \Generated\Shared\Transfer\MessageTransfer
-     */
     protected function createMessageTransfer(string $message): MessageTransfer
     {
         return (new MessageTransfer())->setValue($message);

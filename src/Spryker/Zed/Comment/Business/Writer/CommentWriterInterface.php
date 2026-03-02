@@ -12,24 +12,9 @@ use Generated\Shared\Transfer\CommentThreadResponseTransfer;
 
 interface CommentWriterInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\CommentRequestTransfer $commentRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadResponseTransfer
-     */
     public function addComment(CommentRequestTransfer $commentRequestTransfer): CommentThreadResponseTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentRequestTransfer $commentRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadResponseTransfer
-     */
     public function updateComment(CommentRequestTransfer $commentRequestTransfer): CommentThreadResponseTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentRequestTransfer $commentRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadResponseTransfer
-     */
     public function removeComment(CommentRequestTransfer $commentRequestTransfer): CommentThreadResponseTransfer;
 }

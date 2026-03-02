@@ -12,11 +12,6 @@ use Generated\Shared\Transfer\CustomerCriteriaFilterTransfer;
 
 interface CommentToCustomerFacadeInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\CustomerCriteriaFilterTransfer $customerCriteriaFilterTransfer
-     *
-     * @return \Generated\Shared\Transfer\CustomerCollectionTransfer
-     */
     public function getCustomerCollectionByCriteria(
         CustomerCriteriaFilterTransfer $customerCriteriaFilterTransfer
     ): CustomerCollectionTransfer;

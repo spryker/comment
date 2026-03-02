@@ -57,9 +57,6 @@ class CommentFacadeValidateCommentAuthorTest extends Unit
      */
     protected CommentBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -69,9 +66,6 @@ class CommentFacadeValidateCommentAuthorTest extends Unit
         ]);
     }
 
-    /**
-     * @return void
-     */
     public function testReturnsNoErrorWhenIdCustomerOfExistingCustomerIsProvided(): void
     {
         // Arrange
@@ -88,9 +82,6 @@ class CommentFacadeValidateCommentAuthorTest extends Unit
         $this->assertEmpty($commentValidationResponseTransfer->getMessages());
     }
 
-    /**
-     * @return void
-     */
     public function testReturnsNoErrorWhenIdCustomerIsProvidedAndCommentHasIdCommentSet(): void
     {
         // Arrange
@@ -116,9 +107,6 @@ class CommentFacadeValidateCommentAuthorTest extends Unit
         $this->assertEmpty($commentValidationResponseTransfer->getMessages());
     }
 
-    /**
-     * @return void
-     */
     public function testReturnsErrorWhenIdCustomerOfNonExistingCustomerIsProvided(): void
     {
         // Arrange
@@ -138,9 +126,6 @@ class CommentFacadeValidateCommentAuthorTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testReturnsErrorWhenProvidedCustomerIsNotAnAuthorOfUpdatedComment(): void
     {
         // Arrange

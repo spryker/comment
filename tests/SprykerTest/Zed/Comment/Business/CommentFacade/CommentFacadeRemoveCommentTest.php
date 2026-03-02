@@ -56,9 +56,6 @@ class CommentFacadeRemoveCommentTest extends Unit
      */
     protected $customerTransfer;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -66,9 +63,6 @@ class CommentFacadeRemoveCommentTest extends Unit
         $this->customerTransfer = $this->tester->haveCustomer();
     }
 
-    /**
-     * @return void
-     */
     public function testRemoveCommentRemovesExistingComment(): void
     {
         // Arrange
@@ -95,9 +89,6 @@ class CommentFacadeRemoveCommentTest extends Unit
         $this->assertCount(0, $commentThreadTransfer->getComments());
     }
 
-    /**
-     * @return void
-     */
     public function testRemoveCommentThrowsExceptionWithEmptyComment(): void
     {
         // Arrange
@@ -117,9 +108,6 @@ class CommentFacadeRemoveCommentTest extends Unit
         $this->tester->getFacade()->removeComment($commentRequestTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testRemoveCommentThrowsExceptionWithEmptyCustomer(): void
     {
         // Arrange
@@ -139,9 +127,6 @@ class CommentFacadeRemoveCommentTest extends Unit
         $this->tester->getFacade()->removeComment($commentRequestTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testRemoveCommentThrowsExceptionWithEmptyIdCustomer(): void
     {
         // Arrange
@@ -161,9 +146,6 @@ class CommentFacadeRemoveCommentTest extends Unit
         $this->tester->getFacade()->removeComment($commentRequestTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testRemoveCommentWithWrongUuidComment(): void
     {
         // Arrange
@@ -191,9 +173,6 @@ class CommentFacadeRemoveCommentTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testRemoveCommentWithWrongCustomer(): void
     {
         // Arrange

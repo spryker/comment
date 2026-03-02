@@ -65,9 +65,6 @@ class CommentFacadeRemoveCommentTagTest extends Unit
      */
     protected $availableCommentTags = [];
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -75,9 +72,6 @@ class CommentFacadeRemoveCommentTagTest extends Unit
         $this->customerTransfer = $this->tester->haveCustomer();
     }
 
-    /**
-     * @return void
-     */
     public function testRemoveCommentTagRemovesCommentTagFromComment(): void
     {
         // Arrange
@@ -112,9 +106,6 @@ class CommentFacadeRemoveCommentTagTest extends Unit
         $this->assertCount(0, $storedCommentTransfer->getCommentTags());
     }
 
-    /**
-     * @return void
-     */
     public function testRemoveCommentTagThrowsExceptionWhenCommentTagNameNotProvided(): void
     {
         // Arrange
@@ -129,9 +120,6 @@ class CommentFacadeRemoveCommentTagTest extends Unit
         $this->getFacadeMock()->removeCommentTag($commentTagRequestTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testRemoveCommentTagThrowsExceptionWhenCommentNotProvided(): void
     {
         // Arrange
@@ -146,9 +134,6 @@ class CommentFacadeRemoveCommentTagTest extends Unit
         $this->getFacadeMock()->removeCommentTag($commentTagRequestTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testRemoveCommentTagThrowsExceptionWhenCommentUuidNotProvided(): void
     {
         // Arrange
@@ -163,9 +148,6 @@ class CommentFacadeRemoveCommentTagTest extends Unit
         $this->getFacadeMock()->removeCommentTag($commentTagRequestTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testRemoveCommentTagRemovesNotAvailableTagFromComment(): void
     {
         // Arrange
@@ -192,9 +174,6 @@ class CommentFacadeRemoveCommentTagTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testRemoveCommentTagRemovesTagFromCommentWithWrongUuid(): void
     {
         // Arrange
@@ -219,9 +198,6 @@ class CommentFacadeRemoveCommentTagTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testRemoveCommentTagRemovesUnsavedTagFromComment(): void
     {
         // Arrange
@@ -253,9 +229,6 @@ class CommentFacadeRemoveCommentTagTest extends Unit
         $this->assertCount(0, $storedCommentTransfer->getCommentTags());
     }
 
-    /**
-     * @return \Spryker\Zed\Comment\Business\CommentFacadeInterface
-     */
     protected function getFacadeMock(): CommentFacadeInterface
     {
         /** @var \PHPUnit\Framework\MockObject\MockObject|\Spryker\Zed\Comment\CommentConfig $commentConfigMock */

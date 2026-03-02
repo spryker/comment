@@ -30,21 +30,12 @@ class CommentTagWriter implements CommentTagWriterInterface
      */
     protected $commentConfig;
 
-    /**
-     * @param \Spryker\Client\Comment\Zed\CommentStubInterface $commentStub
-     * @param \Spryker\Client\Comment\CommentConfig $commentConfig
-     */
     public function __construct(CommentStubInterface $commentStub, CommentConfig $commentConfig)
     {
         $this->commentStub = $commentStub;
         $this->commentConfig = $commentConfig;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentTagRequestTransfer $commentTagRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadResponseTransfer
-     */
     public function addCommentTag(CommentTagRequestTransfer $commentTagRequestTransfer): CommentThreadResponseTransfer
     {
         if (!$this->isCommentTagAvailable($commentTagRequestTransfer)) {
@@ -54,11 +45,6 @@ class CommentTagWriter implements CommentTagWriterInterface
         return $this->commentStub->addCommentTag($commentTagRequestTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentTagRequestTransfer $commentTagRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadResponseTransfer
-     */
     public function removeCommentTag(CommentTagRequestTransfer $commentTagRequestTransfer): CommentThreadResponseTransfer
     {
         if (!$this->isCommentTagAvailable($commentTagRequestTransfer)) {
@@ -68,21 +54,11 @@ class CommentTagWriter implements CommentTagWriterInterface
         return $this->commentStub->removeCommentTag($commentTagRequestTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentTagRequestTransfer $commentTagRequestTransfer
-     *
-     * @return bool
-     */
     protected function isCommentTagAvailable(CommentTagRequestTransfer $commentTagRequestTransfer): bool
     {
         return in_array($commentTagRequestTransfer->getName(), $this->commentConfig->getAvailableCommentTags(), true);
     }
 
-    /**
-     * @param string $message
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadResponseTransfer
-     */
     protected function createErrorResponse(string $message): CommentThreadResponseTransfer
     {
         $messageTransfer = (new MessageTransfer())

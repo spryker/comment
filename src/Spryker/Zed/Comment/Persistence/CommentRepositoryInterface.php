@@ -15,11 +15,6 @@ use Generated\Shared\Transfer\CommentTransfer;
 
 interface CommentRepositoryInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\CommentRequestTransfer $commentRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadTransfer|null
-     */
     public function findCommentThread(CommentRequestTransfer $commentRequestTransfer): ?CommentThreadTransfer;
 
     /**
@@ -29,11 +24,6 @@ interface CommentRepositoryInterface
      */
     public function getCommentThreads(CommentsRequestTransfer $commentsRequestTransfer): array;
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentThreadTransfer $commentThreadTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadTransfer|null
-     */
     public function findCommentThreadById(CommentThreadTransfer $commentThreadTransfer): ?CommentThreadTransfer;
 
     /**
@@ -50,11 +40,6 @@ interface CommentRepositoryInterface
      */
     public function getCommentsByCommentThreadIds(array $threadIds): array;
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentTransfer $commentTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentTransfer|null
-     */
     public function findCommentByUuid(CommentTransfer $commentTransfer): ?CommentTransfer;
 
     /**
@@ -69,11 +54,5 @@ interface CommentRepositoryInterface
      */
     public function getCommentsByFilter(CommentFilterTransfer $commentFilterTransfer): array;
 
-    /**
-     * @param int $idCustomer
-     * @param int $idComment
-     *
-     * @return bool
-     */
     public function isCustomerCommentAuthor(int $idCustomer, int $idComment): bool;
 }

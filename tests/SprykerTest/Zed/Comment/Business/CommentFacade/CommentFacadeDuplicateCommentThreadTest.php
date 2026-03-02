@@ -60,9 +60,6 @@ class CommentFacadeDuplicateCommentThreadTest extends Unit
      */
     protected $availableCommentTags = [];
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -70,9 +67,6 @@ class CommentFacadeDuplicateCommentThreadTest extends Unit
         $this->customerTransfer = $this->tester->haveCustomer();
     }
 
-    /**
-     * @return void
-     */
     public function testDuplicateCommentThreadCopyExistingCommentThreadToNewOne(): void
     {
         // Arrange
@@ -106,9 +100,6 @@ class CommentFacadeDuplicateCommentThreadTest extends Unit
         $this->assertCount(2, $commentThreadTransfer->getComments());
     }
 
-    /**
-     * @return void
-     */
     public function testDuplicateCommentThreadCopyExistingCommentThreadToNewOnWhenOriginalCommentDontHaveFkCustomer(): void
     {
         // Arrange
@@ -147,9 +138,6 @@ class CommentFacadeDuplicateCommentThreadTest extends Unit
         $this->assertCount(2, $commentThreadTransfer->getComments());
     }
 
-    /**
-     * @return void
-     */
     public function testDuplicateCommentThreadThrowsExceptionWithEmptyFilterOwnerId(): void
     {
         // Arrange
@@ -164,9 +152,6 @@ class CommentFacadeDuplicateCommentThreadTest extends Unit
         $this->tester->getFacade()->duplicateCommentThread($commentFilterTransfer, $commentRequestTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testDuplicateCommentThreadThrowsExceptionWithEmptyFilterOwnerType(): void
     {
         // Arrange
@@ -181,9 +166,6 @@ class CommentFacadeDuplicateCommentThreadTest extends Unit
         $this->tester->getFacade()->duplicateCommentThread($commentFilterTransfer, $commentRequestTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testDuplicateCommentThreadThrowsExceptionWithEmptyOwnerId(): void
     {
         // Arrange
@@ -198,9 +180,6 @@ class CommentFacadeDuplicateCommentThreadTest extends Unit
         $this->tester->getFacade()->duplicateCommentThread($commentFilterTransfer, $commentRequestTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testDuplicateCommentThreadThrowsExceptionWithEmptyOwnerType(): void
     {
         // Arrange
@@ -215,9 +194,6 @@ class CommentFacadeDuplicateCommentThreadTest extends Unit
         $this->tester->getFacade()->duplicateCommentThread($commentFilterTransfer, $commentRequestTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testDuplicateCommentThreadCopyThreadToExistingCommentThread(): void
     {
         // Arrange
@@ -246,9 +222,6 @@ class CommentFacadeDuplicateCommentThreadTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testShouldDeleteExistingCommentThreadDuringDuplication(): void
     {
         // Arrange
@@ -273,9 +246,6 @@ class CommentFacadeDuplicateCommentThreadTest extends Unit
         $this->assertTrue($commentThreadResponseTransfer->getIsSuccessful());
     }
 
-    /**
-     * @return void
-     */
     public function testDuplicateCommentThreadCopyCommentsWithTagToNewOne(): void
     {
         // Arrange
@@ -324,9 +294,6 @@ class CommentFacadeDuplicateCommentThreadTest extends Unit
         );
     }
 
-    /**
-     * @return \Spryker\Zed\Comment\Business\CommentFacadeInterface
-     */
     protected function getFacadeMock(): CommentFacadeInterface
     {
         /** @var \PHPUnit\Framework\MockObject\MockObject|\Spryker\Zed\Comment\CommentConfig $commentConfigMock */
@@ -346,27 +313,14 @@ class CommentFacadeDuplicateCommentThreadTest extends Unit
         return $commentFacade;
     }
 
-    /**
-     * @return \Spryker\Zed\CommentExtension\Dependency\Plugin\CommentAuthorValidatorStrategyPluginInterface
-     */
     protected function getNoCustomerCommentValidationStrategyPlugin(): CommentAuthorValidatorStrategyPluginInterface
     {
         return new class extends AbstractPlugin implements CommentAuthorValidatorStrategyPluginInterface {
-            /**
-             * @param \Generated\Shared\Transfer\CommentRequestTransfer $commentRequestTransfer
-             *
-             * @return bool
-             */
             public function isApplicable(CommentRequestTransfer $commentRequestTransfer): bool
             {
                 return $commentRequestTransfer->getCommentOrFail()->getCustomer() === null;
             }
 
-            /**
-             * @param \Generated\Shared\Transfer\CommentRequestTransfer $commentRequestTransfer
-             *
-             * @return \Generated\Shared\Transfer\CommentValidationResponseTransfer
-             */
             public function validate(CommentRequestTransfer $commentRequestTransfer): CommentValidationResponseTransfer
             {
                 return (new CommentValidationResponseTransfer())->setIsSuccessful(true);

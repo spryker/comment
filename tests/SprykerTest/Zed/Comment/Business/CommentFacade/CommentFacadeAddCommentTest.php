@@ -37,9 +37,6 @@ class CommentFacadeAddCommentTest extends Unit
      */
     protected $customerTransfer;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -47,9 +44,6 @@ class CommentFacadeAddCommentTest extends Unit
         $this->customerTransfer = $this->tester->haveCustomer();
     }
 
-    /**
-     * @return void
-     */
     public function testAddCommentCreatesNewThreadWithFirstComment(): void
     {
         // Arrange
@@ -72,9 +66,6 @@ class CommentFacadeAddCommentTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testAddCommentAddsCommentToExistingThread(): void
     {
         // Arrange
@@ -113,9 +104,6 @@ class CommentFacadeAddCommentTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testAddCommentThrowsExceptionWithEmptyOwnerId(): void
     {
         // Arrange
@@ -129,9 +117,6 @@ class CommentFacadeAddCommentTest extends Unit
         $this->tester->getFacade()->addComment($commentRequestTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testAddCommentThrowsExceptionWithEmptyOwnerType(): void
     {
         // Arrange
@@ -145,9 +130,6 @@ class CommentFacadeAddCommentTest extends Unit
         $this->tester->getFacade()->addComment($commentRequestTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testAddCommentThrowsExceptionWithEmptyMessage(): void
     {
         // Arrange
@@ -165,9 +147,6 @@ class CommentFacadeAddCommentTest extends Unit
         $this->tester->getFacade()->addComment($commentRequestTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testAddCommentThrowsExceptionWithEmptyCustomer(): void
     {
         // Arrange

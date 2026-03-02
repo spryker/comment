@@ -120,9 +120,6 @@ class CommentClient extends AbstractClient implements CommentClientInterface
             ->getAvailableCommentTags();
     }
 
-    /**
-     * @return \Spryker\Client\Comment\Zed\CommentStubInterface
-     */
     protected function getZedStub(): CommentStubInterface
     {
         return $this->getFactory()->createZedCommentStub();

@@ -44,9 +44,6 @@ class CopyOrderCommentThreadCartPreReorderPluginTest extends Unit
      */
     protected CommentCommunicationTester $tester;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -54,9 +51,6 @@ class CopyOrderCommentThreadCartPreReorderPluginTest extends Unit
         $this->tester->ensureDatabaseTableIsEmpty(SpyCommentThreadQuery::create());
     }
 
-    /**
-     * @return void
-     */
     public function testShouldCopyCommentThreadFromOrderToQuote(): void
     {
         // Arrange
@@ -80,9 +74,6 @@ class CopyOrderCommentThreadCartPreReorderPluginTest extends Unit
         $this->assertSame($commentThreadTransfer->getComments()->count(), $quoteCommentThead->getComments()->count());
     }
 
-    /**
-     * @return void
-     */
     public function testShouldNotCopyCommentThreadFromOrderToQuoteWithoutAmendment(): void
     {
         // Arrange
@@ -102,9 +93,6 @@ class CopyOrderCommentThreadCartPreReorderPluginTest extends Unit
         $this->assertNull($updatedSalesOrderAmendmentItemCollectionTransfer->getQuote()->getCommentThread());
     }
 
-    /**
-     * @return void
-     */
     public function testShouldNotCopyCommentThreadFromOrderToQuoteWithoutComments(): void
     {
         // Arrange
@@ -125,9 +113,6 @@ class CopyOrderCommentThreadCartPreReorderPluginTest extends Unit
         $this->assertNull($updatedSalesOrderAmendmentItemCollectionTransfer->getQuote()->getCommentThread());
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\CommentThreadTransfer
-     */
     protected function createCommentThread(): CommentThreadTransfer
     {
         $commentTransfer = (new CommentBuilder())->build()

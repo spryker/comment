@@ -21,11 +21,6 @@ use Spryker\Zed\Kernel\Persistence\AbstractRepository;
  */
 class CommentRepository extends AbstractRepository implements CommentRepositoryInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\CommentRequestTransfer $commentRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadTransfer|null
-     */
     public function findCommentThread(CommentRequestTransfer $commentRequestTransfer): ?CommentThreadTransfer
     {
         $commentRequestTransfer
@@ -67,11 +62,6 @@ class CommentRepository extends AbstractRepository implements CommentRepositoryI
         return $this->mapCommentThreadEntitiesToTransfers($commentThreadEntities);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentThreadTransfer $commentThreadTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadTransfer|null
-     */
     public function findCommentThreadById(CommentThreadTransfer $commentThreadTransfer): ?CommentThreadTransfer
     {
         $commentThreadEntity = $this->getFactory()
@@ -128,11 +118,6 @@ class CommentRepository extends AbstractRepository implements CommentRepositoryI
             ->mapCommentEntitiesToCommentTransfers($commentEntityCollection);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentTransfer $commentTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentTransfer|null
-     */
     public function findCommentByUuid(CommentTransfer $commentTransfer): ?CommentTransfer
     {
         $commentTransfer->requireUuid();
@@ -199,12 +184,6 @@ class CommentRepository extends AbstractRepository implements CommentRepositoryI
             ->mapCommentEntitiesToCommentTransfers($commentQuery->find());
     }
 
-    /**
-     * @param int $idCustomer
-     * @param int $idComment
-     *
-     * @return bool
-     */
     public function isCustomerCommentAuthor(int $idCustomer, int $idComment): bool
     {
         return $this->getFactory()

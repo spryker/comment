@@ -65,9 +65,6 @@ class CommentFacadeAddCommentTagTest extends Unit
      */
     protected $availableCommentTags = [];
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -75,9 +72,6 @@ class CommentFacadeAddCommentTagTest extends Unit
         $this->customerTransfer = $this->tester->haveCustomer();
     }
 
-    /**
-     * @return void
-     */
     public function testAddCommentTagAddsCommentTagToComment(): void
     {
         // Arrange
@@ -113,9 +107,6 @@ class CommentFacadeAddCommentTagTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testAddCommentTagThrowsExceptionWhenCommentTagNameNotProvided(): void
     {
         // Arrange
@@ -130,9 +121,6 @@ class CommentFacadeAddCommentTagTest extends Unit
         $this->getFacadeMock()->addCommentTag($commentTagRequestTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testAddCommentTagThrowsExceptionWhenCommentNotProvided(): void
     {
         // Arrange
@@ -147,9 +135,6 @@ class CommentFacadeAddCommentTagTest extends Unit
         $this->getFacadeMock()->addCommentTag($commentTagRequestTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testAddCommentTagThrowsExceptionWhenCommentUuidNotProvided(): void
     {
         // Arrange
@@ -164,9 +149,6 @@ class CommentFacadeAddCommentTagTest extends Unit
         $this->getFacadeMock()->addCommentTag($commentTagRequestTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testAddCommentTagAddsNotAvailableTagToComment(): void
     {
         // Arrange
@@ -200,9 +182,6 @@ class CommentFacadeAddCommentTagTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testAddCommentTagAddsTagToCommentWithWrongUuid(): void
     {
         // Arrange
@@ -227,9 +206,6 @@ class CommentFacadeAddCommentTagTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testAddCommentTagAddsSameCommentTag(): void
     {
         // Arrange
@@ -278,9 +254,6 @@ class CommentFacadeAddCommentTagTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testAddCommentTagAddsCommentTagToCommentWithTags(): void
     {
         // Arrange
@@ -336,9 +309,6 @@ class CommentFacadeAddCommentTagTest extends Unit
         );
     }
 
-    /**
-     * @return \Spryker\Zed\Comment\Business\CommentFacadeInterface
-     */
     protected function getFacadeMock(): CommentFacadeInterface
     {
         /** @var \PHPUnit\Framework\MockObject\MockObject|\Spryker\Zed\Comment\CommentConfig $commentConfigMock */

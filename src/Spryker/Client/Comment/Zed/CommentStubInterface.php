@@ -13,45 +13,15 @@ use Generated\Shared\Transfer\CommentThreadResponseTransfer;
 
 interface CommentStubInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\CommentRequestTransfer $commentRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadResponseTransfer
-     */
     public function addComment(CommentRequestTransfer $commentRequestTransfer): CommentThreadResponseTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentRequestTransfer $commentRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadResponseTransfer
-     */
     public function updateComment(CommentRequestTransfer $commentRequestTransfer): CommentThreadResponseTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentRequestTransfer $commentRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadResponseTransfer
-     */
     public function updateCommentTags(CommentRequestTransfer $commentRequestTransfer): CommentThreadResponseTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentRequestTransfer $commentRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadResponseTransfer
-     */
     public function removeComment(CommentRequestTransfer $commentRequestTransfer): CommentThreadResponseTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentTagRequestTransfer $commentTagRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadResponseTransfer
-     */
     public function addCommentTag(CommentTagRequestTransfer $commentTagRequestTransfer): CommentThreadResponseTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentTagRequestTransfer $commentTagRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadResponseTransfer
-     */
     public function removeCommentTag(CommentTagRequestTransfer $commentTagRequestTransfer): CommentThreadResponseTransfer;
 }

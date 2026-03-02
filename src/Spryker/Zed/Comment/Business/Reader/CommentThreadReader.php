@@ -35,11 +35,6 @@ class CommentThreadReader implements CommentThreadReaderInterface
         $this->commentExpanderPlugins = $commentExpanderPlugins;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentRequestTransfer $commentRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadTransfer|null
-     */
     public function findCommentThreadByOwner(CommentRequestTransfer $commentRequestTransfer): ?CommentThreadTransfer
     {
         $commentThreadTransfer = $this->commentRepository->findCommentThread($commentRequestTransfer);
@@ -76,11 +71,6 @@ class CommentThreadReader implements CommentThreadReaderInterface
         return $this->mapCommentsToThreads($commentThreadTransfers, $commentTransfers);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentThreadTransfer $commentThreadTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadTransfer|null
-     */
     public function findCommentThreadById(CommentThreadTransfer $commentThreadTransfer): ?CommentThreadTransfer
     {
         $commentThreadTransfer = $this->commentRepository->findCommentThreadById($commentThreadTransfer);

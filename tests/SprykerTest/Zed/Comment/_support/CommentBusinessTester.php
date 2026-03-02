@@ -30,11 +30,6 @@ class CommentBusinessTester extends Actor
 {
     use _generated\CommentBusinessTesterActions;
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentRequestTransfer $commentRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadResponseTransfer
-     */
     public function createComment(CommentRequestTransfer $commentRequestTransfer): CommentThreadResponseTransfer
     {
         return $this->haveComment([

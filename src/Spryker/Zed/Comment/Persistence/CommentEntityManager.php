@@ -32,11 +32,6 @@ class CommentEntityManager extends AbstractEntityManager implements CommentEntit
      */
     protected const DATE_FORMAT = 'Y-m-d H:i:s.u';
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentThreadTransfer $commentThreadTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadTransfer
-     */
     public function createCommentThread(CommentThreadTransfer $commentThreadTransfer): CommentThreadTransfer
     {
         $commentThreadEntity = $this->getFactory()
@@ -52,11 +47,6 @@ class CommentEntityManager extends AbstractEntityManager implements CommentEntit
         return $commentThreadTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentTransfer $commentTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentTransfer
-     */
     public function createComment(CommentTransfer $commentTransfer): CommentTransfer
     {
         $commentEntity = $this->getFactory()
@@ -74,11 +64,6 @@ class CommentEntityManager extends AbstractEntityManager implements CommentEntit
         return $commentTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentTransfer $commentTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentTransfer
-     */
     public function updateComment(CommentTransfer $commentTransfer): CommentTransfer
     {
         $commentEntity = $this->getFactory()
@@ -94,11 +79,6 @@ class CommentEntityManager extends AbstractEntityManager implements CommentEntit
         return $commentMapper->mapCommentEntityToCommentTransfer($commentEntity, $commentTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentTransfer $commentTransfer
-     *
-     * @return void
-     */
     public function removeComment(CommentTransfer $commentTransfer): void
     {
         $commentTransfer->requireUuid();
@@ -109,11 +89,6 @@ class CommentEntityManager extends AbstractEntityManager implements CommentEntit
             ->update([static::COLUMN_IS_DELETED => true]);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentTransfer $commentTransfer
-     *
-     * @return void
-     */
     public function addCommentTagsToComment(CommentTransfer $commentTransfer): void
     {
         $commentTransfer->requireIdComment();
@@ -137,11 +112,6 @@ class CommentEntityManager extends AbstractEntityManager implements CommentEntit
         }
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentTransfer $commentTransfer
-     *
-     * @return void
-     */
     public function removeCommentTagsFromComment(CommentTransfer $commentTransfer): void
     {
         $commentTransfer->requireIdComment();
@@ -159,11 +129,6 @@ class CommentEntityManager extends AbstractEntityManager implements CommentEntit
             ->delete();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentTagTransfer $commentTagTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentTagTransfer
-     */
     public function createCommentTag(CommentTagTransfer $commentTagTransfer): CommentTagTransfer
     {
         $commentTagEntity = $this->getFactory()
@@ -179,11 +144,6 @@ class CommentEntityManager extends AbstractEntityManager implements CommentEntit
         return $commentTagTransfer;
     }
 
-    /**
-     * @param int $idCommentThread
-     *
-     * @return void
-     */
     public function removeCommentThread(int $idCommentThread): void
     {
         $commentToCommentTagEntities = $this->getFactory()

@@ -36,10 +36,6 @@ class CustomerCommentValidator implements CustomerCommentValidatorInterface
      */
     protected CommentRepositoryInterface $commentRepository;
 
-    /**
-     * @param \Spryker\Zed\Comment\Dependency\Facade\CommentToCustomerFacadeInterface $customerFacade
-     * @param \Spryker\Zed\Comment\Persistence\CommentRepositoryInterface $commentRepository
-     */
     public function __construct(
         CommentToCustomerFacadeInterface $customerFacade,
         CommentRepositoryInterface $commentRepository
@@ -48,11 +44,6 @@ class CustomerCommentValidator implements CustomerCommentValidatorInterface
         $this->commentRepository = $commentRepository;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentRequestTransfer $commentRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentValidationResponseTransfer
-     */
     public function validateCommentAuthor(CommentRequestTransfer $commentRequestTransfer): CommentValidationResponseTransfer
     {
         $commentValidationResponseTransfer = (new CommentValidationResponseTransfer())->setIsSuccessful(false);
@@ -80,11 +71,6 @@ class CustomerCommentValidator implements CustomerCommentValidatorInterface
         return $commentValidationResponseTransfer->setIsSuccessful(true);
     }
 
-    /**
-     * @param string $message
-     *
-     * @return \Generated\Shared\Transfer\MessageTransfer
-     */
     protected function createMessageTransfer(string $message): MessageTransfer
     {
         return (new MessageTransfer())->setValue($message);

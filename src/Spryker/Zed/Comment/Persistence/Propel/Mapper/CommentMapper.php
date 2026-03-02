@@ -36,12 +36,6 @@ class CommentMapper
         return $commentTagTransfers;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentTagTransfer $commentTagTransfer
-     * @param \Orm\Zed\Comment\Persistence\SpyCommentTag $commentTagEntity
-     *
-     * @return \Orm\Zed\Comment\Persistence\SpyCommentTag
-     */
     public function mapCommentTagTransferToCommentTagEntity(
         CommentTagTransfer $commentTagTransfer,
         SpyCommentTag $commentTagEntity
@@ -97,12 +91,6 @@ class CommentMapper
         return $commentTransfers;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentTransfer $commentTransfer
-     * @param \Orm\Zed\Comment\Persistence\SpyComment $commentEntity
-     *
-     * @return \Orm\Zed\Comment\Persistence\SpyComment
-     */
     public function mapCommentTransferToCommentEntity(
         CommentTransfer $commentTransfer,
         SpyComment $commentEntity
@@ -117,12 +105,6 @@ class CommentMapper
         return $commentEntity;
     }
 
-    /**
-     * @param \Orm\Zed\Comment\Persistence\SpyComment $commentEntity
-     * @param \Generated\Shared\Transfer\CommentTransfer $commentTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentTransfer
-     */
     public function mapCommentEntityToCommentTransfer(
         SpyComment $commentEntity,
         CommentTransfer $commentTransfer
@@ -140,12 +122,6 @@ class CommentMapper
         return $commentTransfer;
     }
 
-    /**
-     * @param \Orm\Zed\Customer\Persistence\SpyCustomer $customerEntity
-     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
-     *
-     * @return \Generated\Shared\Transfer\CustomerTransfer
-     */
     protected function mapCustomerEntityToCustomerTransfer(SpyCustomer $customerEntity, CustomerTransfer $customerTransfer): CustomerTransfer
     {
         $customerTransfer = $customerTransfer->fromArray($customerEntity->toArray(), true);
@@ -169,12 +145,6 @@ class CommentMapper
         return $commentTagTransfers;
     }
 
-    /**
-     * @param \Orm\Zed\Comment\Persistence\SpyCommentTag $commentTagEntity
-     * @param \Generated\Shared\Transfer\CommentTagTransfer $commentTagTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentTagTransfer
-     */
     protected function mapCommentTagEntityToCommentTagTransfer(
         SpyCommentTag $commentTagEntity,
         CommentTagTransfer $commentTagTransfer

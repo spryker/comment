@@ -30,9 +30,6 @@ use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
  */
 class CommentBusinessFactory extends AbstractBusinessFactory
 {
-    /**
-     * @return \Spryker\Zed\Comment\Business\Writer\CommentWriterInterface
-     */
     public function createCommentWriter(): CommentWriterInterface
     {
         return new CommentWriter(
@@ -44,9 +41,6 @@ class CommentBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\Comment\Business\Writer\CommentThreadWriterInterface
-     */
     public function createCommentThreadWriter(): CommentThreadWriterInterface
     {
         return new CommentThreadWriter(
@@ -56,9 +50,6 @@ class CommentBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\Comment\Business\Writer\CommentTagWriterInterface
-     */
     public function createCommentTagWriter(): CommentTagWriterInterface
     {
         return new CommentTagWriter(
@@ -69,9 +60,6 @@ class CommentBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\Comment\Business\Reader\CommentThreadReaderInterface
-     */
     public function createCommentThreadReader(): CommentThreadReaderInterface
     {
         return new CommentThreadReader(
@@ -80,9 +68,6 @@ class CommentBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\Comment\Business\Validator\CommentValidatorInterface
-     */
     public function createCommentValidator(): CommentValidatorInterface
     {
         return new CommentValidator(
@@ -91,9 +76,6 @@ class CommentBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\Comment\Business\Validator\CustomerCommentValidatorInterface
-     */
     public function createCustomerCommentValidator(): CustomerCommentValidatorInterface
     {
         return new CustomerCommentValidator(
@@ -126,9 +108,6 @@ class CommentBusinessFactory extends AbstractBusinessFactory
         return $this->getProvidedDependency(CommentDependencyProvider::PLUGINS_COMMENT_EXPANDER);
     }
 
-    /**
-     * @return \Spryker\Zed\Comment\Dependency\Facade\CommentToCustomerFacadeInterface
-     */
     public function getCustomerFacade(): CommentToCustomerFacadeInterface
     {
         return $this->getProvidedDependency(CommentDependencyProvider::FACADE_CUSTOMER);

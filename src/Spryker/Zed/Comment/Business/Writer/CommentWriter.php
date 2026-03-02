@@ -48,13 +48,6 @@ class CommentWriter implements CommentWriterInterface
      */
     protected $commentValidator;
 
-    /**
-     * @param \Spryker\Zed\Comment\Persistence\CommentEntityManagerInterface $commentEntityManager
-     * @param \Spryker\Zed\Comment\Persistence\CommentRepositoryInterface $commentRepository
-     * @param \Spryker\Zed\Comment\Business\Reader\CommentThreadReaderInterface $commentThreadReader
-     * @param \Spryker\Zed\Comment\Business\Writer\CommentThreadWriterInterface $commentThreadWriter
-     * @param \Spryker\Zed\Comment\Business\Validator\CommentValidatorInterface $commentValidator
-     */
     public function __construct(
         CommentEntityManagerInterface $commentEntityManager,
         CommentRepositoryInterface $commentRepository,
@@ -69,11 +62,6 @@ class CommentWriter implements CommentWriterInterface
         $this->commentValidator = $commentValidator;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentRequestTransfer $commentRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadResponseTransfer
-     */
     public function addComment(CommentRequestTransfer $commentRequestTransfer): CommentThreadResponseTransfer
     {
         $commentRequestTransfer
@@ -98,11 +86,6 @@ class CommentWriter implements CommentWriterInterface
         });
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentRequestTransfer $commentRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadResponseTransfer
-     */
     public function updateComment(CommentRequestTransfer $commentRequestTransfer): CommentThreadResponseTransfer
     {
         $commentRequestTransfer
@@ -128,11 +111,6 @@ class CommentWriter implements CommentWriterInterface
         });
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentRequestTransfer $commentRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadResponseTransfer
-     */
     public function removeComment(CommentRequestTransfer $commentRequestTransfer): CommentThreadResponseTransfer
     {
         $commentRequestTransfer
@@ -159,11 +137,6 @@ class CommentWriter implements CommentWriterInterface
         });
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentRequestTransfer $commentRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadResponseTransfer
-     */
     protected function executeAddCommentTransaction(CommentRequestTransfer $commentRequestTransfer): CommentThreadResponseTransfer
     {
         $commentTransfer = $commentRequestTransfer->getComment();
@@ -182,12 +155,6 @@ class CommentWriter implements CommentWriterInterface
             ->setCommentThread($commentThreadTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentRequestTransfer $commentRequestTransfer
-     * @param \Generated\Shared\Transfer\CommentTransfer $commentTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadResponseTransfer
-     */
     protected function executeUpdateCommentTransaction(
         CommentRequestTransfer $commentRequestTransfer,
         CommentTransfer $commentTransfer
@@ -202,11 +169,6 @@ class CommentWriter implements CommentWriterInterface
         return $this->createCommentThreadResponse($commentTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentTransfer $commentTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadResponseTransfer
-     */
     protected function executeRemoveCommentTransaction(
         CommentTransfer $commentTransfer
     ): CommentThreadResponseTransfer {
@@ -217,11 +179,6 @@ class CommentWriter implements CommentWriterInterface
         return $this->createCommentThreadResponse($commentTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentRequestTransfer $commentRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadTransfer
-     */
     protected function getCommentThread(CommentRequestTransfer $commentRequestTransfer): CommentThreadTransfer
     {
         $commentThreadTransfer = $this->commentThreadReader->findCommentThreadByOwner($commentRequestTransfer);
@@ -233,11 +190,6 @@ class CommentWriter implements CommentWriterInterface
         return $this->commentThreadWriter->createCommentThread($commentRequestTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentTransfer $commentTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadResponseTransfer
-     */
     protected function createCommentThreadResponse(CommentTransfer $commentTransfer): CommentThreadResponseTransfer
     {
         $commentThreadTransfer = (new CommentThreadTransfer())
@@ -250,11 +202,6 @@ class CommentWriter implements CommentWriterInterface
             ->setCommentThread($commentThreadTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentValidationResponseTransfer $commentValidationResponseTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadResponseTransfer
-     */
     protected function createCommentThreadResponseTransferWithErrors(
         CommentValidationResponseTransfer $commentValidationResponseTransfer
     ): CommentThreadResponseTransfer {

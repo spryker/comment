@@ -19,17 +19,11 @@ use Spryker\Client\Kernel\AbstractFactory;
  */
 class CommentFactory extends AbstractFactory
 {
-    /**
-     * @return \Spryker\Client\Comment\Zed\CommentStubInterface
-     */
     public function createZedCommentStub(): CommentStubInterface
     {
         return new CommentStub($this->getZedRequestClient());
     }
 
-    /**
-     * @return \Spryker\Client\Comment\Writer\CommentTagWriterInterface
-     */
     public function createCommentTagWriter(): CommentTagWriterInterface
     {
         return new CommentTagWriter(
@@ -38,9 +32,6 @@ class CommentFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Client\Comment\CommentConfig
-     */
     public function getModuleConfig(): CommentConfig
     {
         /** @var \Spryker\Client\Comment\CommentConfig $config */
@@ -49,9 +40,6 @@ class CommentFactory extends AbstractFactory
         return $config;
     }
 
-    /**
-     * @return \Spryker\Client\Comment\Dependency\Client\CommentToZedRequestClientInterface
-     */
     public function getZedRequestClient(): CommentToZedRequestClientInterface
     {
         return $this->getProvidedDependency(CommentDependencyProvider::CLIENT_ZED_REQUEST);

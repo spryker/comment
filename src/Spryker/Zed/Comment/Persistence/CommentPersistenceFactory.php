@@ -21,41 +21,26 @@ use Spryker\Zed\Kernel\Persistence\AbstractPersistenceFactory;
  */
 class CommentPersistenceFactory extends AbstractPersistenceFactory
 {
-    /**
-     * @return \Orm\Zed\Comment\Persistence\SpyCommentThreadQuery
-     */
     public function getCommentThreadPropelQuery(): SpyCommentThreadQuery
     {
         return SpyCommentThreadQuery::create();
     }
 
-    /**
-     * @return \Orm\Zed\Comment\Persistence\SpyCommentQuery
-     */
     public function getCommentPropelQuery(): SpyCommentQuery
     {
         return SpyCommentQuery::create();
     }
 
-    /**
-     * @return \Orm\Zed\Comment\Persistence\SpyCommentToCommentTagQuery
-     */
     public function getCommentToCommentTagPropelQuery(): SpyCommentToCommentTagQuery
     {
         return SpyCommentToCommentTagQuery::create();
     }
 
-    /**
-     * @return \Orm\Zed\Comment\Persistence\SpyCommentTagQuery
-     */
     public function getCommentTagPropelQuery(): SpyCommentTagQuery
     {
         return SpyCommentTagQuery::create();
     }
 
-    /**
-     * @return \Spryker\Zed\Comment\Persistence\Propel\Mapper\CommentMapper
-     */
     public function createCommentMapper(): CommentMapper
     {
         return new CommentMapper();

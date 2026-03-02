@@ -36,9 +36,6 @@ class CommentFacadeFindCommentThreadByOwnerTest extends Unit
      */
     protected $customerTransfer;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -46,9 +43,6 @@ class CommentFacadeFindCommentThreadByOwnerTest extends Unit
         $this->customerTransfer = $this->tester->haveCustomer();
     }
 
-    /**
-     * @return void
-     */
     public function testFindCommentThreadByOwnerRetrievesCommentThread(): void
     {
         // Arrange
@@ -75,9 +69,6 @@ class CommentFacadeFindCommentThreadByOwnerTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testFindCommentThreadByOwnerReturnNullResultWhenWrongRequestIsPassed(): void
     {
         // Arrange
@@ -94,9 +85,6 @@ class CommentFacadeFindCommentThreadByOwnerTest extends Unit
         $this->assertNull($commentThreadTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testFindCommentThreadByOwnerThrowsExceptionWithEmptyOwnerId(): void
     {
         // Arrange
@@ -110,9 +98,6 @@ class CommentFacadeFindCommentThreadByOwnerTest extends Unit
         $this->tester->getFacade()->findCommentThreadByOwner($commentRequestTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testFindCommentThreadByOwnerThrowsExceptionWithEmptyOwnerType(): void
     {
         // Arrange

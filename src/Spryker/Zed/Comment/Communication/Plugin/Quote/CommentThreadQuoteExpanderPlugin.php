@@ -86,9 +86,6 @@ class CommentThreadQuoteExpanderPlugin extends AbstractPlugin implements QuoteEx
         $this->commentsByIdQuote = [];
     }
 
-    /**
-     * @return void
-     */
     protected function preloadComments(): void
     {
         if ($this->commentsByIdQuote !== []) {
@@ -102,11 +99,6 @@ class CommentThreadQuoteExpanderPlugin extends AbstractPlugin implements QuoteEx
         $this->commentsByIdQuote = $this->getFacade()->getCommentThreads($commentRequestTransfer);
     }
 
-    /**
-     * @param int $idQuote
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadTransfer|null
-     */
     protected function findCommentThreadByIdQuote(int $idQuote): ?CommentThreadTransfer
     {
         if (!isset($this->commentsByIdQuote[$idQuote])) {

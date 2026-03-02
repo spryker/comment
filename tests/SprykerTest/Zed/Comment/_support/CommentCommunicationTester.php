@@ -30,11 +30,6 @@ class CommentCommunicationTester extends Actor
 {
     use _generated\CommentCommunicationTesterActions;
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentRequestTransfer $commentRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadResponseTransfer
-     */
     public function createComment(CommentRequestTransfer $commentRequestTransfer): CommentThreadResponseTransfer
     {
         return $this->haveComment([

@@ -16,11 +16,6 @@ class CommentHelper extends Module
 {
     use LocatorHelperTrait;
 
-    /**
-     * @param array $seed
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadResponseTransfer
-     */
     public function haveComment(array $seed = []): CommentThreadResponseTransfer
     {
         $commentRequestTransfer = (new CommentRequestBuilder($seed))->build();

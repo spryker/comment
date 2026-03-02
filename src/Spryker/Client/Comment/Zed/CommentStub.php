@@ -19,19 +19,11 @@ class CommentStub implements CommentStubInterface
      */
     protected $zedRequestClient;
 
-    /**
-     * @param \Spryker\Client\Comment\Dependency\Client\CommentToZedRequestClientInterface $zedRequestClient
-     */
     public function __construct(CommentToZedRequestClientInterface $zedRequestClient)
     {
         $this->zedRequestClient = $zedRequestClient;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentRequestTransfer $commentRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadResponseTransfer
-     */
     public function addComment(CommentRequestTransfer $commentRequestTransfer): CommentThreadResponseTransfer
     {
         /** @var \Generated\Shared\Transfer\CommentThreadResponseTransfer $commentThreadResponseTransfer */
@@ -43,11 +35,6 @@ class CommentStub implements CommentStubInterface
         return $commentThreadResponseTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentRequestTransfer $commentRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadResponseTransfer
-     */
     public function updateComment(CommentRequestTransfer $commentRequestTransfer): CommentThreadResponseTransfer
     {
         /** @var \Generated\Shared\Transfer\CommentThreadResponseTransfer $commentThreadResponseTransfer */
@@ -59,11 +46,6 @@ class CommentStub implements CommentStubInterface
         return $commentThreadResponseTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentRequestTransfer $commentRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadResponseTransfer
-     */
     public function updateCommentTags(CommentRequestTransfer $commentRequestTransfer): CommentThreadResponseTransfer
     {
         /** @var \Generated\Shared\Transfer\CommentThreadResponseTransfer $commentThreadResponseTransfer */
@@ -75,11 +57,6 @@ class CommentStub implements CommentStubInterface
         return $commentThreadResponseTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentRequestTransfer $commentRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadResponseTransfer
-     */
     public function removeComment(CommentRequestTransfer $commentRequestTransfer): CommentThreadResponseTransfer
     {
         /** @var \Generated\Shared\Transfer\CommentThreadResponseTransfer $commentThreadResponseTransfer */
@@ -91,11 +68,6 @@ class CommentStub implements CommentStubInterface
         return $commentThreadResponseTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentTagRequestTransfer $commentTagRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadResponseTransfer
-     */
     public function addCommentTag(CommentTagRequestTransfer $commentTagRequestTransfer): CommentThreadResponseTransfer
     {
         /** @var \Generated\Shared\Transfer\CommentThreadResponseTransfer $commentThreadResponseTransfer */
@@ -107,11 +79,6 @@ class CommentStub implements CommentStubInterface
         return $commentThreadResponseTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CommentTagRequestTransfer $commentTagRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\CommentThreadResponseTransfer
-     */
     public function removeCommentTag(CommentTagRequestTransfer $commentTagRequestTransfer): CommentThreadResponseTransfer
     {
         /** @var \Generated\Shared\Transfer\CommentThreadResponseTransfer $commentThreadResponseTransfer */
